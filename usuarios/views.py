@@ -38,13 +38,8 @@ def cadastro(request):
 
     if request.method == 'POST':
         form = CadastroForms(request.POST)
-        if form["senha_1"].value() != form["senha_2"].value():
-            messages.error(request, 'Senhas diferentes')
-            return redirect('cadastro')
         
         if form.is_valid():
-            if form["senha_1"].value() != form["senha_2"].value():
-                return redirect('cadastro')
             
             nome= form["nome_cadastro"].value()
             email= form["email"].value()
